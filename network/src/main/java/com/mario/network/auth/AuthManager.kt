@@ -7,7 +7,6 @@ class AuthManager(private val sp: SharedPreferences, private val rxAuthBus: RxAu
 
     companion object {
         const val SP_KEY_AUTH_TOKEN = "Auth token"
-        const val SP_FIREBASE_TOKEN = "Firebase Token"
     }
 
     fun getAuthToken() = sp.getString(SP_KEY_AUTH_TOKEN, "")!!
@@ -22,12 +21,6 @@ class AuthManager(private val sp: SharedPreferences, private val rxAuthBus: RxAu
     fun login(authToken: String) {
         sp.edit().putString(SP_KEY_AUTH_TOKEN, authToken).apply()
     }
-
-    fun saveFireBaseToken(token: String) {
-        sp.edit().putString(SP_FIREBASE_TOKEN, token).apply()
-    }
-
-    fun getFirebaseToken(): String = sp.getString(SP_FIREBASE_TOKEN, "")!!
 
 }
 
