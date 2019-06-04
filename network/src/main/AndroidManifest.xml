@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sentia.network">
+
+    <application>
+        <provider
+            android:name="com.sentia.network.NetworkModuleInitProvider"
+            android:authorities="${applicationId}.networkModuleInitProvider"
+            android:enabled="true"
+            android:exported="false" />
+    </application>
+</manifest>

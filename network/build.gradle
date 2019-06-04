@@ -1,0 +1,49 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+
+
+    defaultConfig {
+        minSdkVersion 18
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
+    testImplementation "junit:junit:$junit_version"
+    androidTestImplementation "androidx.test:runner:$testRunner_version_x"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCore_version"
+
+    //Support
+    implementation "androidx.appcompat:appcompat:$supportLib_app_compat_version_x"
+
+    //Type-safe HTTP client
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version" //todo remove when using just courotines
+    //Moshi
+    api "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+    api "com.squareup.moshi:moshi-kotlin:$moshi_version"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+    api "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofit_coroutines_version"
+
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams:$lifecycle_version_x"
+}
