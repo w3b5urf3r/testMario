@@ -1,11 +1,8 @@
-package com.sentia.network.auth
+package com.mario.network.auth
 
 import android.content.SharedPreferences
-import com.sentia.network.RxAuthBus
+import com.mario.network.RxAuthBus
 
-/**
- * Created by mariolopez on 16/1/18.
- */
 class AuthManager(private val sp: SharedPreferences, private val rxAuthBus: RxAuthBus) {
 
     companion object {

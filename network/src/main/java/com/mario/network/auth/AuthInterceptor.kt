@@ -1,11 +1,8 @@
-package com.sentia.network.auth
+package com.mario.network.auth
 
 import okhttp3.Interceptor
 import okhttp3.Response
 
-/**
- * Created by mariolopez on 16/1/18.
- */
 class AuthInterceptor(private val authManager: AuthManager) : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {

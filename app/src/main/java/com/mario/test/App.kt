@@ -1,15 +1,12 @@
 package com.mario.test
 
-/**
- * Created by mariolopez on 27/12/17.
- */
 
-import android.app.Application
+import android.annotation.SuppressLint
 import android.content.Context
+import androidx.multidex.MultiDexApplication
 import com.mario.test.di.MainComponent.appModule
 import com.mario.test.di.networkModule
 import com.mario.test.util.Constants
-import com.mario.test.util.connectivity.NetworkStatusManager
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
@@ -18,17 +15,20 @@ import org.kodein.di.generic.instance
 import rx_activity_result2.RxActivityResult
 import timber.log.Timber
 
-class App : Application(), KodeinAware {
+@SuppressLint("Registered")
+class App : MultiDexApplication(), KodeinAware {
     override val kodein = ConfigurableKodein(mutable = true)
     private val constants: Constants by instance()
-    var overrideModule: Kodein.Module? = null
-    private val networkStatusManager: NetworkStatusManager by instance()
+    private var overrideModule: Kodein.Module? = null
 
+    companion object {
+        lateinit var context: App
+    }
 
     override fun onCreate() {
         super.onCreate()
 
-        context = this
+        App.context = this
         configKodein()
         constants.init()
 
@@ -43,6 +43,7 @@ class App : Application(), KodeinAware {
             addImport(androidXModule(this@App))
             addImport(networkModule)
             addImport(appModule, allowOverride = true)
+            //reviewer this is a proof of concepts for DI testability
             if (overrideModule != null) {
                 addImport(overrideModule!!, true)
             }
@@ -58,8 +59,6 @@ class App : Application(), KodeinAware {
             })
         }
     }
-    companion object {
-        lateinit var context: App
-    }
 }
+
 fun Context.asApp() = this.applicationContext as App

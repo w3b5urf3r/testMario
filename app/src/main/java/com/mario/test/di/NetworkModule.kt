@@ -1,12 +1,12 @@
 package com.mario.test.di
 
+import com.mario.network.Network
+import com.mario.network.auth.AuthManager
+import com.mario.network.strategy.IConnected
 import com.mario.test.App
-import com.mario.test.util.Constants
 import com.mario.test.api.Api
+import com.mario.test.util.Constants
 import com.mario.test.util.connectivity.NetworkStatusManager
-import com.sentia.network.Network
-import com.sentia.network.auth.AuthManager
-import com.sentia.network.strategy.IConnected
 import org.kodein.di.Kodein
 import org.kodein.di.generic.*
 
@@ -28,13 +28,14 @@ import org.kodein.di.generic.*
  * see http://kodein.org/Kodein-DI/?6.0/android#_android_module
  */
 val networkModule = Kodein.Module("network module") {
+    bind<NetworkStatusManager>() with provider { NetworkStatusManager(on(App.context).instance()) }
 
     bind<Api>() with multiton { timeoutToShouldLogout: Pair<Long, Boolean> ->
         Network.getRetrofitAdapter<Api>(
-            Constants.BASE_URL,
-            timeoutToShouldLogout.first,
-            instance<NetworkStatusManager>() as IConnected,
-            timeoutToShouldLogout.second
+                Constants.BASE_URL,
+                timeoutToShouldLogout.first,
+                instance<NetworkStatusManager>() as IConnected,
+                timeoutToShouldLogout.second
         )
     }
     bind<AuthManager>() with provider { Network.authManager }

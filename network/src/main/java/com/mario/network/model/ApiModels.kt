@@ -1,8 +1,8 @@
-package com.sentia.network.model
+package com.mario.network.model
 
-import com.sentia.network.model.Response.Companion.MESSAGE
-import com.sentia.network.model.Response.Companion.STATUS_CODE
-import com.sentia.network.model.Response.Companion.SUCCESS
+import com.mario.network.model.Response.Companion.MESSAGE
+import com.mario.network.model.Response.Companion.STATUS_CODE
+import com.mario.network.model.Response.Companion.SUCCESS
 import com.squareup.moshi.Json
 
 data class ResponseAPI(

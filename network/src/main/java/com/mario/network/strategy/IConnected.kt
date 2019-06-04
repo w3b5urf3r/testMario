@@ -1,4 +1,4 @@
-package com.sentia.network.strategy
+package com.mario.network.strategy
 
 interface IConnected {
     fun isConnected(): Boolean

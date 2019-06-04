@@ -13,9 +13,6 @@ import org.kodein.di.android.x.closestKodein
 import org.kodein.di.generic.instance
 import kotlin.coroutines.CoroutineContext
 
-/**
- * Created by mariolopez on 27/12/17.
- */
 abstract class BaseFragment<T : BaseViewModel> : Fragment(), KodeinAware, CoroutineScope {
 
     override val kodein by closestKodein()

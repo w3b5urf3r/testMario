@@ -1,13 +1,9 @@
-package com.sentia.network
+package com.mario.network
 
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 import kotlin.reflect.KClass
-
-/**
- * Created by mariolopez on 27/12/17.
- */
 
 class RxAuthBus {
 

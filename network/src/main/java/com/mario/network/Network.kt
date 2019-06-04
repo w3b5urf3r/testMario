@@ -1,11 +1,11 @@
-package com.sentia.network
+package com.mario.network
 
 import android.content.Context
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.sentia.network.auth.AuthInterceptor
-import com.sentia.network.auth.AuthManager
-import com.sentia.network.interceptor.StatusCodeInterceptor
-import com.sentia.network.strategy.IConnected
+import com.mario.network.auth.AuthInterceptor
+import com.mario.network.auth.AuthManager
+import com.mario.network.interceptor.StatusCodeInterceptor
+import com.mario.network.strategy.IConnected
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit
 
 object Network {
     lateinit var context: WeakReference<Context>
-    var debug: Boolean = false
+    private var debug: Boolean = false
     lateinit var authManager: AuthManager
     private const val AUTH_PREFERENCES = "AUTH PREFS"
 
@@ -33,7 +33,7 @@ object Network {
     fun getOkHttpClient(timeout: Long,
                         authManager: AuthManager,
                         networkStatusManager: IConnected,
-                        shouldLogoutIfUnauthorized: Boolean) =
+                        shouldLogoutIfUnauthorized: Boolean): OkHttpClient =
             OkHttpClient.Builder()
                     .addInterceptor(getAuthInterceptor())
                     .addInterceptor(StatusCodeInterceptor(
@@ -67,7 +67,7 @@ object Network {
             .build()
             .create(T::class.java)
 
-    fun getMoshiConverterFactory() =
+    fun getMoshiConverterFactory(): MoshiConverterFactory =
             MoshiConverterFactory.create(Moshi.Builder()
                     .add(KotlinJsonAdapterFactory())
                     .build())

@@ -1,4 +1,4 @@
-package com.sentia.network
+package com.mario.network
 
 import android.content.ContentProvider
 import android.content.ContentValues

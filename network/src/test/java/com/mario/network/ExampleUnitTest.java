@@ -1,4 +1,4 @@
-package com.sentia.network;
+package com.mario.network;
 
 import org.junit.Test;
 

@@ -1,8 +1,5 @@
 package com.mario.test.util
 
-/**
- * Created by mariolopez on 27/12/17.
- */
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject

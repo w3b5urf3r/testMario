@@ -1,5 +1,3 @@
 <resources>
     <string name="app_name">Network Module</string>
-    <string name="network_not_available">Network not available</string>
-
 </resources>
