@@ -16,8 +16,12 @@ I use couroutines for asynchronous jobs and RXBinding for UI (easier and more co
 
 I had to find a balance between quality and achievement of the required objectives. 
 The idea is to build each componenent in indipendent libraries
-e.g: network for API operations
+e.g: 
+
+network for API operations
+
 persistence for the DB layer (adding a number)
+
 after this moving the dependency for the two module to `libraryTest` which the library module it self
 this last point is not yet covered for lack of time, but the separation of concerns is actually visible from the current structure. 
 
