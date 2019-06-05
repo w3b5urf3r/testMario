@@ -22,6 +22,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -41,7 +42,8 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    implementation project(path: ':network')
+    implementation project(path: ':network')//todo dependency to move to library test
+    implementation project(path: ':persistence') //todo dependency to move to library test
 
     //Support
     implementation "androidx.appcompat:appcompat:$supportLib_app_compat_version_x"
@@ -92,9 +94,6 @@ dependencies {
 
     //KTX is still in Preview State
     implementation "androidx.core:core-ktx:$ktx_version"
-
-    //Glide
-    implementation "com.github.bumptech.glide:glide:$glide_version"
 
     //Multidex
     implementation 'androidx.multidex:multidex:2.0.1'

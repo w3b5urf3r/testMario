@@ -19,16 +19,13 @@ import org.kodein.di.generic.instance
 import timber.log.Timber.e
 import kotlin.coroutines.CoroutineContext
 
-/**
- * Created by mariolopez on 27/12/17.
- */
 open class BaseViewModel :
         ViewModel(),
         LifecycleObserver,
-    RxViewModel,
+        RxViewModel,
         KodeinAware,
-    ScopedViewModel,
-    RepositoryViewModel {
+        ScopedViewModel,
+        RepositoryViewModel {
 
     final override val kodein by closestKodein(App.context)
 

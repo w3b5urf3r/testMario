@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="baseUrl">\"\"</string>
+    <string name="baseUrl">https://roktcdn1.akamaized.net/</string>
+    <string name="press_me_sweetie">press me sweetie</string>
+    <string name="loading">Loading…</string>
+    <string name="hint_insert_number">insertNumber</string>
 </resources>

@@ -7,9 +7,9 @@ import android.net.ConnectivityManager
 import android.net.ConnectivityManager.*
 import android.net.NetworkCapabilities
 import android.os.Build
+import com.mario.network.strategy.IConnected
 import com.mario.test.App
 import com.mario.test.util.primitives.orFalse
-import com.sentia.network.strategy.IConnected
 import io.reactivex.BackpressureStrategy
 import io.reactivex.subjects.PublishSubject
 import org.kodein.di.Kodein
@@ -17,7 +17,6 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.android.closestKodein
 
 /**
- * Created by mariolopez on 23/1/18.
  *
  * Note: The implicit broadcast CONNECTIVITY_ACTION was deprecated in API level 28, but what will be deprecated is the
  * ability for a backgrounded App to receive network connection state changes.

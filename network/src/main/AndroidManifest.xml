@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sentia.network">
+    package="com.mario.network">
 
     <application>
         <provider
-            android:name="com.sentia.network.NetworkModuleInitProvider"
+            android:name="com.mario.network.NetworkModuleInitProvider"
             android:authorities="${applicationId}.networkModuleInitProvider"
             android:enabled="true"
             android:exported="false" />
