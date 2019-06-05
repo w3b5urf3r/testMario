@@ -25,6 +25,25 @@ class NumbersViewModel : BaseViewModel() {
 
             }
         }
+    }
 
+    fun addNumbers(number: Int) {
+
+        launch {
+            io({
+                e(this)
+                numbersLiveData.postValue(Resource.error(AppException(this)))
+            }) {
+
+                repository.addNumbers(number)
+                val numbers = mutableListOf<Int>()
+                //note these two functions can be combined into one at the repository level to abstract the source of data
+                numbers.addAll(repository.getNumbers())
+                numbers.addAll(repository.getDefaultNumbers())
+
+                numbersLiveData.postValue(Resource.success(numbers))
+
+            }
+        }
     }
 }

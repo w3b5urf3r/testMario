@@ -10,6 +10,10 @@
         <variable
             name="numbers"
             type="List&lt;Integer&gt;" />
+
+        <variable
+            name="average"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,13 +21,28 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <EditText
+            android:id="@+id/et_number"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="0dp"
+            android:background="@android:color/holo_red_dark"
+            android:hint="@string/hint_insert_number"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/tv_average"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="50dp"
+            android:background="@android:color/holo_green_dark"
+            android:text="@{average}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_number"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView

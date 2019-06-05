@@ -1,1 +1,1 @@
-include ':app', ':librarytest',':network'
+include ':app', ':librarytest',':network',':persistence'

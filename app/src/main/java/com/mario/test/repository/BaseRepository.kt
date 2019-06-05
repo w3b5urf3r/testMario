@@ -14,4 +14,6 @@ abstract class BaseRepository :
 
 interface INumbers {
     suspend fun getDefaultNumbers(): List<Int>
+    suspend fun addNumbers(vararg numbers: Int)
+    suspend fun getNumbers(): List<Int>
 }
